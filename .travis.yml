@@ -1,7 +1,6 @@
 language: python
 python: # test various python versions, Django supports all of them
   - "2.7"
-  - "3.2"
   - "3.3"
   - "3.4"
   - "3.5"
@@ -20,8 +19,6 @@ install:
   - pip install -r tests/user_foreign_key_testapp/requirements.txt
 matrix:
   exclude:
-    - python: "3.2"
-      env: DJANGO_VERSION=1.9 # Django 1.9 does not support python 3.2, but 3.4+
     - python: "3.3"
       env: DJANGO_VERSION=1.9 # Django 1.9 does not support python 3.3, but 3.4+
     - python: "nightly"
