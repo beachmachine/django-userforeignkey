@@ -2,6 +2,9 @@
 Django UserForeignKey
 =====================
 
+.. image:: https://travis-ci.org/beachmachine/django-userforeignkey.svg?branch=master
+    :target: https://travis-ci.org/beachmachine/django-userforeignkey
+
 Django UserForeignKey is a simple Django app that will give you a UserForeignKey model field. This field extends
 a regular ForeignKey model field, and has the option to automatically set the currently logged in user on insert
 and/or update.
