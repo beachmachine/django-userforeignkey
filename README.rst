@@ -26,7 +26,7 @@ Quick start
 
 2. Add "django_userforeignkey.middleware.UserForeignKeyMiddleware" to your MIDDLEWARE_CLASSES settings like this::
 
-.. code-block:: python    
+.. code-block:: python
     
     MIDDLEWARE_CLASSES = (
         ...
