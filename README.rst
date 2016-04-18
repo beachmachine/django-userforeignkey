@@ -16,19 +16,25 @@ Quick start
 
 1. Add "django_userforeignkey" to your INSTALLED_APPS setting like this::
 
+.. code-block:: python
+    
     INSTALLED_APPS = [
         ...
         'django_userforeignkey',
     ]
+    
 
 2. Add "django_userforeignkey.middleware.UserForeignKeyMiddleware" to your MIDDLEWARE_CLASSES settings like this::
 
+.. code-block:: python    
+    
     MIDDLEWARE_CLASSES = (
         ...
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         ...
         'django_userforeignkey.middleware.UserForeignKeyMiddleware',
     )
+    
 
   Make sure to insert the "django_userforeignkey" middleware after the authentication middleware.
 
@@ -37,9 +43,12 @@ Example usage
 
 Just add "UserForeignKey" to your model::
 
+.. code-block:: python    
+    
     from django.db import models
     from django_userforeignkey.models.fields import UserForeignKey
 
     class MyModel(models.Model):
         my_data = models.CharField(max_length=64, verbose_name="Very important data that are somehow related to a user")
         user = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned")
+
