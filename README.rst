@@ -43,7 +43,7 @@ Example usage
 
 Just add "UserForeignKey" to your model::
 
-.. code-block:: python    
+.. code-block:: python
     
     from django.db import models
     from django_userforeignkey.models.fields import UserForeignKey
