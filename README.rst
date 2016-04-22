@@ -50,7 +50,7 @@ Just add "UserForeignKey" to your model:
 
     class MyModel(models.Model):
         my_data = models.CharField(max_length=64, verbose_name="Very important data that are somehow related to a user")
-        user = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned")
+        user = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned", related_name="mymodels")
 
 
-Whenever an object is created by calling a view (admin, REST API, ...) which contains a request.user object, the request.user object is automatically added.
+The ``UserForeignKey`` behaves just like a normal foreign key element (thus also has properties such as ``related_name``). However, whenever an object is created by calling an authenticated view (admin, REST API, ...) which contains a ``request.user`` object, the ``request.user`` object is automatically associated.
