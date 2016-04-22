@@ -14,7 +14,14 @@ Currently, Django 1.8 (Python 2.7, Python 3.3+) and Django 1.9 (Python 2.7, Pyth
 Quick start
 -----------
 
-1. Add "django_userforeignkey" to your INSTALLED_APPS setting like this:
+1. Download and install using `pip`:
+
+.. code-block:: bash
+    
+    pip install +git:https://github.com/beachmachine/django-userforeignkey.git
+
+
+2. Add ``django_userforeignkey`` to your ``INSTALLED_APPS`` setting like this:
 
 .. code-block:: python
     
@@ -24,7 +31,7 @@ Quick start
     ]
     
 
-2. Add "django_userforeignkey.middleware.UserForeignKeyMiddleware" to your MIDDLEWARE_CLASSES settings like this:
+3. Add ``django_userforeignkey.middleware.UserForeignKeyMiddleware`` to your ``MIDDLEWARE_CLASSES`` settings like this:
 
 .. code-block:: python
     
@@ -36,12 +43,13 @@ Quick start
     )
     
 
-Make sure to insert the "django_userforeignkey" middleware after the authentication middleware.
+Make sure to insert the ``UserForeignKeyMiddleware`` middleware **after** ``AuthenticationMiddleware``.
 
 Example usage
 -------------
 
-Just add "UserForeignKey" to your model:
+Just add ``UserForeignKey`` to your model like you would with any other foreign key:
+
 
 .. code-block:: python
     
