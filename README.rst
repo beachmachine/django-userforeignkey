@@ -18,7 +18,7 @@ Quick start
 
 .. code-block:: bash
     
-    pip install +git:https://github.com/beachmachine/django-userforeignkey.git
+    pip install git+https://github.com/beachmachine/django-userforeignkey.git
 
 
 2. Add ``django_userforeignkey`` to your ``INSTALLED_APPS`` setting like this:

@@ -2,3 +2,4 @@
 *.pyo
 dist/**
 django_userforeignkey.egg-info/**
+.idea/**
