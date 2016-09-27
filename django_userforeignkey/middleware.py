@@ -6,20 +6,9 @@ from django_userforeignkey.request import set_current_request
 try:
     from django.utils.deprecation import MiddlewareMixin
 except:
+    # Django 1.8 and 1.9 compatibility
     class MiddlewareMixin(object):
-        def __init__(self, get_response=None):
-            self.get_response = get_response
-            super(MiddlewareMixin, self).__init__()
-    
-        def __call__(self, request):
-            response = None
-            if hasattr(self, 'process_request'):
-                response = self.process_request(request)
-            if not response:
-                response = self.get_response(request)
-            if hasattr(self, 'process_response'):
-                response = self.process_response(request, response)
-            return response
+        pass
 
 
 logger = logging.getLogger(__name__)

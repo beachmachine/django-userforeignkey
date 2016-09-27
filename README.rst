@@ -89,3 +89,5 @@ Development and Tests
     cd tests/user_foreign_key_testapp
     python manage.py test
 
+
+You can also use `tox` for testing, as it will test against Django 1.8, 1.9, 1.10 with Python versions 2.7, 3.4 and 3.5. See ``tox.ini`` for details.
