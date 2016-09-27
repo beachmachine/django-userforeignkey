@@ -11,7 +11,8 @@ Django UserForeignKey is a simple Django app (supporting Django 1.8 and 1.9) tha
 This field extends a regular ForeignKey model field, and has the option to automatically set the currently logged in user on
 insert and/or update.
 
-Currently, Django 1.8 (Python 2.7, Python 3.3+) and Django 1.9 (Python 2.7, Python 3.4+) are supported (Django 1.10a1 was tested too).
+Currently, Django 1.8 (Python 2.7, Python 3.3+), Django 1.9 (Python 2.7, Python 3.4+) and Django 1.10 (Python2.7, Python3.4+) are supported.
+We also support the new Django 1.10 type of `Middleware <https://docs.djangoproject.com/en/1.10/releases/1.10/#new-style-middleware>`_ .
 
 Quick start
 -----------
@@ -42,7 +43,7 @@ Quick start
     ]
 
 
-3. Add ``django_userforeignkey.middleware.UserForeignKeyMiddleware`` to your ``MIDDLEWARE_CLASSES`` settings like this:
+3. Add ``django_userforeignkey.middleware.UserForeignKeyMiddleware`` to your ``MIDDLEWARE_CLASSES`` settings like this (Django 1.10 ``MIDDLEWARE`` is also supported):
 
 .. code-block:: python
 
@@ -81,10 +82,10 @@ Development and Tests
 
     git clone --recursive https://github.com/beachmachine/django-userforeignkey
     cd django-userforeignkey
-    virtualenv -p python2.7 venv
+    virtualenv -p python2.7 venv # or virtualenv -p python3.4 
     source venv/bin/activate
     python setup.py install
-    pip install Django==1.9
+    pip install Django==1.9 # or Django==1.10
     cd tests/user_foreign_key_testapp
     python manage.py test
 

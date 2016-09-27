@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 import logging
 
+from django.utils.deprecation import MiddlewareMixin
 from django_userforeignkey.request import set_current_request
 
 logger = logging.getLogger(__name__)
 
 
-class UserForeignKeyMiddleware(object):
+class UserForeignKeyMiddleware(MiddlewareMixin):
     """Middleware RequestMiddleware
 
     This middleware saves the currently processed request
@@ -14,6 +15,9 @@ class UserForeignKeyMiddleware(object):
     request everywhere, and don't need to pass it to every
     function.
     """
+
+    def __init__(self, get_response=None):
+        self.get_response = get_response
 
     def process_request(self, request):
         logger.debug(u"Process request")
@@ -27,3 +31,4 @@ class UserForeignKeyMiddleware(object):
             set_current_request(None)
 
         return response
+
