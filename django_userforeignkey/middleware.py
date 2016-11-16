@@ -29,10 +29,5 @@ class UserForeignKeyMiddleware(MiddlewareMixin):
 
     def process_response(self, request, response):
         logger.debug(u"Process response")
-
-        # we have to keep the request in memory if we are in test mode, so get_current_user is working
-        if request.META.get('SERVER_NAME', None) != 'testserver':
-            set_current_request(None)
-
+        set_current_request(None)
         return response
-
