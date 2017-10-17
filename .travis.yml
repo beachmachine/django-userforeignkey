@@ -15,7 +15,7 @@ env:
     - DJANGO_VERSION=1.9
     - DJANGO_VERSION=1.10
     - DJANGO_VERSION=1.11
-    - DJANGO_VERSION=2.0a1
+    - DJANGO_VERSION=2.0b1
 cache:
   directories:
     - $HOME/.cache/pip
@@ -31,11 +31,11 @@ matrix:
     - python: "3.3"
       env: DJANGO_VERSION=1.11
     - python: "3.3"
-      env: DJANGO_VERSION=2.0a1
+      env: DJANGO_VERSION=2.0b1
     - python: "2.7"
-      env: DJANGO_VERSION=2.0a1
+      env: DJANGO_VERSION=2.0b1
     - python: "pypy"
-      env: DJANGO_VERSION=2.0a1
+      env: DJANGO_VERSION=2.0b1
     - python: "3.7-dev"
       env: DJANGO_VERSION=1.8 # Django 1.8 might not work with python 3.7
     - python: "nightly"
