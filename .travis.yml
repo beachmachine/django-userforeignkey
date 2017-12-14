@@ -18,7 +18,7 @@ cache:
   directories:
     - $HOME/.cache/pip
 install:
-  - pip install -q Django==$DJANGO_VERSION # install custom django version
+  - pip install -q Django==$DJANGO_VERSION.* # install custom django version
   - pip install -r tests/user_foreign_key_testapp/requirements.txt
 matrix:
   exclude:
