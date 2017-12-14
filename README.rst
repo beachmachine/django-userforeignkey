@@ -109,6 +109,7 @@ Changelog
 * Tested for Django 2.0 support
 * Updated test app for Django 2.0 support
 * Updated tox and travis for automated tests with Django 2.0
+* Behaviour change: Prior to 0.2.0 the UserForeignKey field had ``editable`` set to ``False`` only if ``auto_user == True``. Since 0.2.0 ``editable`` is set to ``False`` if ``auto_user == True or auto_user_add == True``
 
 0.1.2
 

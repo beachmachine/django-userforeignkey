@@ -27,9 +27,7 @@ class UserForeignKey(ForeignKey):
             kwargs['on_delete'] = SET_NULL
             kwargs['null'] = True
             kwargs['blank'] = True
-
-            if auto_user:
-                kwargs['editable'] = False
+            kwargs['editable'] = kwargs.get('editable', False)
 
         super(UserForeignKey, self).__init__(**kwargs)
 
