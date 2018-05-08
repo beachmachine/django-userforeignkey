@@ -104,6 +104,11 @@ The configuration options are similar to Djangos `DateField <https://docs.django
 Changelog
 ---------
 
+0.2.1
+
+* Added ``setup.cfg`` with the ``license_file`` keyword, ensuring that the actual LICENSE file is also installed when using ``pip install``
+* Improved ``.travis.yml``
+
 0.2.0
 
 * Tested for Django 2.0 support
