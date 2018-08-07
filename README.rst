@@ -7,13 +7,15 @@ Django UserForeignKey
 
 .. image:: https://img.shields.io/pypi/v/django-userforeignkey.svg?maxAge=2592000   :target:
 
-Django UserForeignKey is a simple Django app (supporting Django 1.8 up to Django 2.0) that will give you a UserForeignKey model field.
+Django UserForeignKey is a simple Django app that will give you a `UserForeignKey` model field for Django models.
 This field extends a regular ForeignKey model field, and has the option to automatically set the currently logged in user on
 insert and/or update.
 
-Currently, Django 1.8, 1.11 (Python 2.7, Python 3.4+) and Django 2.0 (Python 3.4+) are supported.
+Currently, Django 1.11 (Python 2.7, Python 3.4+), Django 2.0 (Python 3.4+) and Django 2.1 (Python 3.5+) are supported.
 
-*Note*: Django 1.9 and 1.10 should work too, but both versions are insecure and deprecated. Consider upgrading to a newer Django Version!
+If you need support for the insecure and deprecated Django 1.8 (and possibly 1.9 and 1.10), please fall back to version 0.2.1.
+
+There also is a `video tutorial on YouTube <https://www.youtube.com/watch?v=iJCbYMgUDW8>`_ that shows you basic functionality of this package.
 
 Quick start
 -----------
@@ -104,6 +106,11 @@ The configuration options are similar to Djangos `DateField <https://docs.django
 Changelog
 ---------
 
+0.3.0 (Meta release, no actual code changes)
+
+* Dropped support for Django 1.8, 1.9 and 1.10
+* Added support for Django 2.1
+
 0.2.1
 
 * Added ``setup.cfg`` with the ``license_file`` keyword, ensuring that the actual LICENSE file is also installed when using ``pip install``
@@ -137,3 +144,10 @@ Development and Tests
 
 
 You can also use `tox` for testing, as it will test against several Django and Python versions automatically. See ``tox.ini`` for details.
+
+The test source code is in another `repository <https://github.com/anx-ckreuzberger/user_foreign_key_testapp>`_ in the master branch. Changes within that repository can be fetched by calling
+
+.. code-block:: bash
+
+    git submodule update --remote
+

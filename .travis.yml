@@ -4,10 +4,10 @@ python: # test various python versions (Django Support for various python versio
   - "3.4"
   - "3.5"
   - "3.6"
-  - "3.7-dev"
+#  - "3.7"
   - "pypy"  # PyPy2
   - "pypy3" # PyPy3
-  - "nightly" # currently points to 3.7-dev
+  - "nightly"
 env:
   matrix:
     - DJANGO_VERSION=1.8
@@ -16,6 +16,8 @@ env:
     - DJANGO_VERSION=1.11.* # latest 1.11
     - DJANGO_VERSION=2.0
     - DJANGO_VERSION=2.0.* # latest 2.0
+    - DJANGO_VERSION=2.1
+    - DJANGO_VERSION=2.1.* # latest 2.1
 cache:
   directories:
     - $HOME/.cache/pip
@@ -29,18 +31,24 @@ matrix:
     - { python: "pypy", env: DJANGO_VERSION=2.0 }
     - { python: "2.7", env: DJANGO_VERSION=2.0.* }
     - { python: "pypy", env: DJANGO_VERSION=2.0.* }
+    - { python: "2.7", env: DJANGO_VERSION=2.1 }
+    - { python: "pypy", env: DJANGO_VERSION=2.1 }
+    - { python: "2.7", env: DJANGO_VERSION=2.1.* }
+    - { python: "pypy", env: DJANGO_VERSION=2.1.* }
+    # Django 2.1 does not support the above and Python 3.4 anymore
+    - { python: "3.4", env: DJANGO_VERSION=2.1 }
+    - { python: "3.4", env: DJANGO_VERSION=2.1.* }
     # Django 1.8 might not support newer versions of python
     - { python: "3.6", env: DJANGO_VERSION=1.8 }
-    - { python: "3.7", env: DJANGO_VERSION=1.8 }
+#    - { python: "3.7", env: DJANGO_VERSION=1.8 }
     - { python: "pypy3", env: DJANGO_VERSION=1.8 }
     - { python: "nightly", env: DJANGO_VERSION=1.8 }
     - { python: "3.6", env: DJANGO_VERSION=1.8.* }
-    - { python: "3.7", env: DJANGO_VERSION=1.8.* }
+#    - { python: "3.7", env: DJANGO_VERSION=1.8.* }
     - { python: "pypy3", env: DJANGO_VERSION=1.8.* }
     - { python: "nightly", env: DJANGO_VERSION=1.8.* }
   allow_failures:
     # newer python versions aswell as pypy may also always break our build
-    - python: "3.7-dev"
     - python: "pypy"
     - python: "pypy3"
     - python: "nightly"
