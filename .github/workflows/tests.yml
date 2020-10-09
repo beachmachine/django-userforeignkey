@@ -6,17 +6,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ['2.7', '3.4', '3.5', '3.6', '3.7', '3.8', 'pypy', 'pypy3']
-        django-version: ['1.8', '1.11', '2.0', '2.1']
+        python-version: ['2.7', '3.4', '3.5', '3.6', '3.7', '3.8']
+        django-version: ['1.11', '2.0', '2.1']
+        experimental: [false]
         exclude:
           - python-version: '2.7'
             django-version: '2.0'
-          - python-version: 'pypy'
-            django-version: '2.0'
           - python-version: '2.7'
-            django-version: '2.1'
-          - python-version: 'pypy'
             django-version: '2.1'
           - python-version: '3.4'
             django-version: '2.1'
@@ -24,14 +22,20 @@ jobs:
             django-version: '1.11'
           - python-version: '3.8'
             django-version: '1.11'
-          - python-version: '3.6'
-            django-version: '1.8'
-          - python-version: '3.7'
-            django-version: '1.8'
-          - python-version: '3.8'
-            django-version: '1.8'
-          - python-version: 'pypy3'
-            django-version: '1.8'
+        include:
+          - python-version: 'pypy2'
+            django-version: '1.11'
+            experimental: true
+          - python-version: pypy3
+            django-version: '1.11'
+            experimental: true
+          - python-version: pypy3
+            django-version: '2.0'
+            experimental: true
+          - python-version: pypy3
+            django-version: '2.1'
+            experimental: true
+          
 
     steps:
       - name: Checkout Code
@@ -49,4 +53,5 @@ jobs:
         run: pip install .
 
       - name: Run tests
+        continue-on-error: ${{ matrix.experimental }}
         run: cd tests/ && python manage.py test
