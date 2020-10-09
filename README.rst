@@ -2,8 +2,8 @@
 Django UserForeignKey
 =====================
 
-.. image:: https://travis-ci.org/beachmachine/django-userforeignkey.svg?branch=master
-    :target: https://travis-ci.org/beachmachine/django-userforeignkey
+.. image:: https://github.com/beachmachine/django-userforeignkey/workflows/Module%20tests/badge.svg
+    :target: https://github.com/beachmachine/django-userforeignkey/actions
 
 .. image:: https://img.shields.io/pypi/v/django-userforeignkey.svg?maxAge=2592000   :target:
 
@@ -141,13 +141,3 @@ Development and Tests
     pip install Django
     cd tests/user_foreign_key_testapp
     python manage.py test
-
-
-You can also use `tox` for testing, as it will test against several Django and Python versions automatically. See ``tox.ini`` for details.
-
-The test source code is in another `repository <https://github.com/anx-ckreuzberger/user_foreign_key_testapp>`_ in the master branch. Changes within that repository can be fetched by calling
-
-.. code-block:: bash
-
-    git submodule update --remote
-

@@ -1,0 +1,52 @@
+name: Module tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['2.7', '3.4', '3.5', '3.6', '3.7', '3.8', 'pypy', 'pypy3']
+        django-version: ['1.8', '1.11', '2.0', '2.1']
+        exclude:
+          - python-version: '2.7'
+            django-version: '2.0'
+          - python-version: 'pypy'
+            django-version: '2.0'
+          - python-version: '2.7'
+            django-version: '2.1'
+          - python-version: 'pypy'
+            django-version: '2.1'
+          - python-version: '3.4'
+            django-version: '2.1'
+          - python-version: '3.7'
+            django-version: '1.11'
+          - python-version: '3.8'
+            django-version: '1.11'
+          - python-version: '3.6'
+            django-version: '1.8'
+          - python-version: '3.7'
+            django-version: '1.8'
+          - python-version: '3.8'
+            django-version: '1.8'
+          - python-version: 'pypy3'
+            django-version: '1.8'
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Django ${{ matrix.django-version }}
+        run: pip install 'Django==${{ matrix.django-version }}'
+
+      - name: Install django_userforeignkey
+        run: pip install .
+
+      - name: Run tests
+        run: cd tests/ && python manage.py test
