@@ -11,7 +11,9 @@ Django UserForeignKey is a simple Django app that will give you a `UserForeignKe
 This field extends a regular ForeignKey model field, and has the option to automatically set the currently logged in user on
 insert and/or update.
 
-Currently, Django 1.11 (Python 2.7, Python 3.4+), Django 2.0 (Python 3.4+) and Django 2.1 (Python 3.5+) are supported.
+Currently, Django 2.2 (Python 3.6+) and Django 3.2 (Python 3.6+) are supported.
+
+If you need support for the insecure and deprecated Django 1.11 and/or Python2, please fall back to version 0.3.0.
 
 If you need support for the insecure and deprecated Django 1.8 (and possibly 1.9 and 1.10), please fall back to version 0.2.1.
 
