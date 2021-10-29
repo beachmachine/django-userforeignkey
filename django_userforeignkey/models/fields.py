@@ -3,7 +3,7 @@ import logging
 
 from django.conf import settings
 from django.db.models import ForeignKey, SET_NULL
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from django_userforeignkey.request import get_current_user
 
