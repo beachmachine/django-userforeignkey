@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+0.4.0
+
+* Dropped support for Django 1.11, 2.0 and 2.1
+* Added support for Django 2.2, 3.1 and 3.2
+
 0.3.0 (Meta release, no actual code changes)
 
 * Dropped support for Django 1.8, 1.9 and 1.10
