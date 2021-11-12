@@ -16,7 +16,7 @@ setup(
     license='BSD License',
     description='A simple Django app that will give you a UserForeignKey model field.',
     long_description=README,
-    url='https://ks.co.at/',
+    url='https://github.com/beachmachine/django-userforeignkey/',
     author='Andreas Stocker',
     author_email='andreas@ks.co.at',
     classifiers=[
