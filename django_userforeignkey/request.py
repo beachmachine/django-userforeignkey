@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+import contextvars
 import logging
-
-from threading import local
 
 from django.contrib.auth.models import AnonymousUser
 
-_thread_locals = local()
+current_request = contextvars.ContextVar("Current request")
+
 logger = logging.getLogger(__name__)
 
 
@@ -17,7 +17,7 @@ def set_current_request(request):
     :return:
     """
     logger.debug(u"Save request in current thread")
-    return setattr(_thread_locals, '__django_userforeignkey__current_request', request)
+    return current_request.set(request)
 
 
 def get_current_request():
@@ -26,7 +26,7 @@ def get_current_request():
 
     :return: Django request object
     """
-    return getattr(_thread_locals, '__django_userforeignkey__current_request', None)
+    return current_request.get(None)
 
 
 def get_current_user():
