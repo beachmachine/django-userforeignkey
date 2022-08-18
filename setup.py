@@ -2,7 +2,7 @@ import os
 
 from setuptools import find_packages, setup
 
-with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
 # allow setup.py to be run from any path
@@ -13,12 +13,13 @@ setup(
     version=os.getenv('PACKAGE_VERSION', '0.0.0').replace('refs/tags/', ''),
     packages=find_packages(),
     include_package_data=True,
+    long_description_content_type='text/markdown',
     license='BSD License',
     description='A simple Django app that will give you a UserForeignKey model field.',
     long_description=README,
     url='https://github.com/beachmachine/django-userforeignkey/',
     author='Andreas Stocker',
-    author_email='andreas@ks.co.at',
+    author_email='andreas@stocker.co.it',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
