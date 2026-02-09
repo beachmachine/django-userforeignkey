@@ -1,12 +1,7 @@
 import datetime
 from django.contrib.auth.models import AnonymousUser, User
 
-try:
-    # Django 1.10 and above
-    from django.urls import reverse
-except:
-    # Django 1.8 and 1.9
-    from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from django.utils import timezone
 from django.test import TestCase
@@ -79,7 +74,7 @@ class PollViewTests(TestCase):
         response = self.client.get(reverse('polls:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
-        self.assertQuerysetEqual(response.context['latest_poll_list'], [])
+        self.assertQuerySetEqual(response.context['latest_poll_list'], [])
 
     def test_index_view_with_a_past_poll(self):
         """
@@ -87,7 +82,7 @@ class PollViewTests(TestCase):
         """
         poll = create_poll(question="Past poll.", days=-30)
         response = self.client.get(reverse('polls:index'))
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context['latest_poll_list'],
             [poll]
         )
@@ -100,7 +95,7 @@ class PollViewTests(TestCase):
         create_poll(question="Future poll.", days=30)
         response = self.client.get(reverse('polls:index'))
         self.assertContains(response, "No polls are available.", status_code=200)
-        self.assertQuerysetEqual(response.context['latest_poll_list'], [])
+        self.assertQuerySetEqual(response.context['latest_poll_list'], [])
 
     def test_index_view_with_future_poll_and_past_poll(self):
         """
@@ -110,7 +105,7 @@ class PollViewTests(TestCase):
         past_poll = create_poll(question="Past poll.", days=-30)
         create_poll(question="Future poll.", days=30)
         response = self.client.get(reverse('polls:index'))
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context['latest_poll_list'],
             [past_poll]
         )
@@ -122,7 +117,7 @@ class PollViewTests(TestCase):
         past_poll_1 = create_poll(question="Past poll 1.", days=-30)
         past_poll_2 = create_poll(question="Past poll 2.", days=-5)
         response = self.client.get(reverse('polls:index'))
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context['latest_poll_list'],
             [past_poll_2, past_poll_1]
         )

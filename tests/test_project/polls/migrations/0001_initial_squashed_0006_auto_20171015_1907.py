@@ -6,7 +6,7 @@ import datetime
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-from django.utils.timezone import utc
+from datetime import timezone as tz
 import django_userforeignkey.models.fields
 
 
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('question', models.CharField(max_length=200)),
                 ('pub_date', models.DateTimeField(verbose_name=b'Publication date of poll')),
                 ('created_by', django_userforeignkey.models.fields.UserForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='polls', to=settings.AUTH_USER_MODEL, verbose_name=b'The user that created the poll')),
-                ('created_at', models.DateTimeField(auto_now_add=True, default=datetime.datetime(2016, 4, 14, 13, 32, 11, 409531, tzinfo=utc), verbose_name=b'Publication date of poll')),
+                ('created_at', models.DateTimeField(auto_now_add=True, default=datetime.datetime(2016, 4, 14, 13, 32, 11, 409531, tzinfo=tz.utc), verbose_name=b'Publication date of poll')),
             ],
         ),
         migrations.AddField(

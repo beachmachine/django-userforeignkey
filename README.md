@@ -9,14 +9,11 @@ Django UserForeignKey is a simple Django app that will give you a `UserForeignKe
 This field extends a regular ForeignKey model field, and has the option to automatically set the currently logged in 
 user on insert and/or update.
 
-Currently, Django 3.2 (Python 3.7+) and Django 4.0 & 4.1 (Python 3.8+) are supported.
+Currently, Django 4.2, 5.2 and 6.0 are supported (Python 3.10+).
 
-If you need support for the insecure and deprecated Python 3.6, please fall back to version 0.4.0.
+If you need support for Django 3.2 or 4.0/4.1, please fall back to version 0.5.0.
 
-If you need support for the insecure and deprecated Django 1.11 and/or Python2, please fall back to version 0.3.0.
-
-If you need support for the insecure and deprecated Django 1.8 (and possibly 1.9 and 1.10), please fall back to 
-version 0.2.1.
+If you need support for the insecure and deprecated Django 1.11 and/or Python 2, please fall back to version 0.3.0.
 
 There also is a [video tutorial on YouTube](https://www.youtube.com/watch?v=iJCbYMgUDW8>) that shows you basic 
 functionality of this package.
@@ -71,7 +68,7 @@ associated.
 
 ## Configuration options
 
-The configuration options are similar to Django's [DateField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datefield).
+The configuration options are similar to Django's [DateField](https://docs.djangoproject.com/en/6.0/ref/models/fields/#datefield).
 
 * `auto_user`: Automatically sets the current user everytime the object is saved (e.g., created or updated). This is 
   useful for **last modified by** information.

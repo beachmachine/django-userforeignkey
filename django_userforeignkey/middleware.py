@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
-from django_userforeignkey.request import set_current_request
 
-# import Django 1.10 middleware
-try:
-    from django.utils.deprecation import MiddlewareMixin
-except:
-    # Django 1.8 and 1.9 compatibility
-    class MiddlewareMixin(object):
-        pass
+from django.utils.deprecation import MiddlewareMixin
+
+from django_userforeignkey.request import set_current_request
 
 
 logger = logging.getLogger(__name__)
