@@ -24,8 +24,8 @@ class UserForeignKey(ForeignKey):
         kwargs['to'] = settings.AUTH_USER_MODEL
 
         if auto_user or auto_user_add:
-            kwargs['on_delete'] = SET_NULL
-            kwargs['null'] = True
+            kwargs['on_delete'] = kwargs.get('on_delete', SET_NULL)
+            kwargs['null'] = kwargs.get('null', True)
             kwargs['blank'] = True
             kwargs['editable'] = kwargs.get('editable', False)
 
